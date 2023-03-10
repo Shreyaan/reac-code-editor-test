@@ -100,9 +100,9 @@ function IFrameDemo() {
     ctrlKey: any;
     metaKey: any;
   }) => {
-    event.preventDefault();
     const charCode = String.fromCharCode(event.which).toLowerCase();
     if ((event.ctrlKey || event.metaKey) && charCode === "s") {
+      event.preventDefault();
       handleRunCode();
     }
   };
