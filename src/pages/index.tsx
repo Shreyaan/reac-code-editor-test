@@ -167,7 +167,7 @@ function IFrameDemo() {
         className="rounded bg-blue-500 py-2 px-4 font-bold text-white"
         onClick={handleRunCode}
       >
-        Save and Run Code
+        Run Code
       </button>
       <iframe className="h-80" title="output" ref={outputRef} />
     </div>
