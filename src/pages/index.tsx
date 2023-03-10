@@ -1,24 +1,46 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { type SetStateAction, useRef, useState } from "react";
+
 import Editor from "@monaco-editor/react";
 
+import { useLocalStorage } from "usehooks-ts";
+
 function IFrameDemo() {
-  const [code, setCode] = useState(`<!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-    </head>
-    <body>
-        <h1>Hello World</h1>
-        <script>
-            // create alert
-            alert("Hello World");
-        </script>
-    </body>
-    </html>`);
+  // const [code, setCode] = useState(`<!DOCTYPE html>
+  //   <html lang="en">
+  //   <head>
+  //       <meta charset="UTF-8">
+  //       <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  //       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  //       <title>Document</title>
+  //   </head>
+  //   <body>
+  //       <h1>Hello World</h1>
+  //       <script>
+  //           // create alert
+  //           alert("Hello World");
+  //       </script>
+  //   </body>
+  //   </html>`);
+  const [code, setCode] = useLocalStorage(
+    "code",
+    `<!DOCTYPE html>
+  //   <html lang="en">
+  //   <head>
+  //       <meta charset="UTF-8">
+  //       <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  //       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  //       <title>Document</title>
+  //   </head>
+  //   <body>
+  //       <h1>Hello World</h1>
+  //       <script>
+  //           // create alert
+  //           alert("Hello World");
+  //       </script>
+  //   </body>
+  //   </html>`
+  );
   const outputRef = useRef(null) as unknown as { current: HTMLIFrameElement };
 
   function handleEditorChange(
